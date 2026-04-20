@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login - LOGATE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* MAIN CARD */
+.container{
+    width:900px;
+    height:500px;
+    display:flex;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* LEFT SIDE */
+.left{
+    width:50%;
+    background:#0b1c1c;
+    padding:40px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left h1{
+    color:#facc15;
+    margin-bottom:10px;
+}
+
+.left p{
+    margin-bottom:25px;
+    opacity:0.7;
+}
+
+/* INPUTS */
+.inputBox{
+    margin-bottom:20px;
+}
+
+.inputBox label{
+    font-size:14px;
+    display:block;
+    margin-bottom:5px;
+}
+
+.inputBox input{
+    width:100%;
+    padding:12px;
+    border-radius:25px;
+    border:1px solid #facc15;
+    background:transparent;
+    color:white;
+    outline:none;
+}
+
+/* OPTIONS */
+.options{
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+    background:#facc15;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    font-size:16px;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* RIGHT SIDE */
+.right{
+    width:50%;
+    background: radial-gradient(circle, #facc15, #d4a017);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* CIRCLE */
+.avatar{
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+}
+
+/* RESPONSIVE */
+@media(max-width:800px){
+    .container{
+        flex-direction:column;
+        height:auto;
+        width:90%;
+    }
+
+    .left, .right{
+        width:100%;
+        height:300px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+        <h1>WELCOME BACK!</h1>
+        <p>Login to continue to LOGATE</p>
+
+        <div class="inputBox">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="example@gmail.com">
+        </div>
+
+        <div class="inputBox">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <div class="options">
+            <span>Remember me</span>
+            <span>Forgot password?</span>
+        </div>
+
+        <button onclick="loginUser()">Sign In</button>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+        <div class="avatar">🧠</div>
+    </div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+/* FIREBASE CONFIG */
+const firebaseConfig = {
+  apiKey: "AIzaSyAEkRSpGQho4mV4IYaGaCtx3kK3qLFqLs4",
+  authDomain: "logate-75a2c.firebaseapp.com",
+  projectId: "logate-75a2c",
+  storageBucket: "logate-75a2c.firebasestorage.app",
+  messagingSenderId: "972163671648",
+  appId: "1:972163671648:web:96dea19274b9bb009ec505",
+  measurementId: "G-DT3VXVPVCB"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+/* LOGIN */
+window.loginUser = function(){
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth, email, password)
+
+.then(() => {
+    alert("Login Successful 🔥");
+    window.location.href = "simulator.html";
+})
+
+.catch(() => {
+    alert("Wrong Email or Password");
+});
+
+}
+
+</script>
+
+</body>
+</html>

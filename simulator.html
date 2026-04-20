@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Logic Gate Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>⚡ LOGATE</h1>
+<p class="brand">by Anamika</p>
+
+<div class="container">
+
+<!-- TOOLBOX -->
+
+<div class="toolbox">
+<h3>Gates</h3>
+
+<div class="gate" draggable="true" data-type="AND">AND</div>
+<div class="gate" draggable="true" data-type="OR">OR</div>
+<div class="gate" draggable="true" data-type="NOT">NOT</div>
+<div class="gate" draggable="true" data-type="XOR">XOR</div>
+
+<h3>Inputs</h3>
+
+<button onclick="toggleInput('A')">Toggle A</button> <button onclick="toggleInput('B')">Toggle B</button>
+
+<p>A: <span id="A">0</span></p>
+<p>B: <span id="B">0</span></p>
+
+</div>
+
+<!-- WORKSPACE -->
+
+<div id="workspace">
+
+<!-- 🔌 WIRE LAYER -->
+
+<svg id="wireLayer"></svg>
+
+</div>
+
+</div>
+
+<h2>Output LED: <span id="output">0</span></h2>
+
+<!-- ✅ Correct script order -->
+
+<script src="gates.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

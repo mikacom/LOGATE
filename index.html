@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LOGATE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    height:100vh;
+    background:#12121c;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+/* ===== BACKGROUND DECOR ===== */
+
+.bg-shape{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    opacity:0.4;
+}
+
+.shape1{
+    width:300px;
+    height:300px;
+    background:#8a2be2;
+    top:10%;
+    left:10%;
+}
+
+.shape2{
+    width:250px;
+    height:250px;
+    background:#5f00ff;
+    bottom:10%;
+    right:10%;
+}
+
+/* ===== STARS ===== */
+
+.star{
+    position:absolute;
+    color:white;
+    font-size:20px;
+    opacity:0.8;
+    animation: blink 2s infinite alternate;
+}
+
+@keyframes blink{
+    from{opacity:0.3;}
+    to{opacity:1;}
+}
+
+/* ===== MAIN CONTAINER ===== */
+
+.container{
+    text-align:center;
+    z-index:2;
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+    from{ transform:translateY(0);}
+    to{ transform:translateY(-15px);}
+}
+
+/* ===== LOGO STYLE ===== */
+
+.logo{
+    font-size:90px;
+    font-weight:900;
+    letter-spacing:5px;
+}
+
+.logo span{
+    color:#a855f7;
+    text-shadow:0 0 20px #a855f7;
+}
+
+/* ===== TAGLINE ===== */
+
+.tagline{
+    margin-top:10px;
+    font-size:14px;
+    letter-spacing:3px;
+    opacity:0.7;
+}
+
+/* ===== BUTTON ===== */
+
+button{
+    margin-top:40px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:#a855f7;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 20px #a855f7;
+}
+
+/* ===== FUN ELEMENTS ===== */
+
+/* Eyes */
+.eye{
+    position:absolute;
+    width:40px;
+    height:40px;
+    background:white;
+    border-radius:50%;
+}
+
+.eye::after{
+    content:'';
+    position:absolute;
+    width:15px;
+    height:15px;
+    background:black;
+    border-radius:50%;
+    top:10px;
+    left:10px;
+}
+
+.eye1{ top:15%; right:20%; }
+.eye2{ top:20%; right:15%; }
+
+/* Blob shape */
+.blob{
+    position:absolute;
+    width:80px;
+    height:50px;
+    background:#a855f7;
+    border-radius:40px;
+    bottom:15%;
+    left:15%;
+    transform:rotate(-20deg);
+}
+
+/* Cat-like triangle */
+.cat{
+    position:absolute;
+    width:0;
+    height:0;
+    border-left:40px solid transparent;
+    border-right:40px solid transparent;
+    border-bottom:70px solid #a855f7;
+    bottom:20%;
+    right:20%;
+    transform:rotate(10deg);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Background glow -->
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<!-- Stars -->
+<div class="star" style="top:10%; left:30%;">✦</div>
+<div class="star" style="top:25%; left:70%;">✦</div>
+<div class="star" style="bottom:20%; left:60%;">✦</div>
+
+<!-- Fun elements -->
+<div class="eye eye1"></div>
+<div class="eye eye2"></div>
+<div class="blob"></div>
+<div class="cat"></div>
+
+<!-- Main -->
+<div class="container">
+    <div class="logo">
+        LO<span>GA</span>TE
+    </div>
+
+    <div class="tagline">
+        BUILD • CONNECT • SIMULATE
+    </div>
+
+    <button onclick="goToLogin()">Continue</button>
+</div>
+
+<script>
+function goToLogin(){
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
